@@ -12,7 +12,7 @@ namespace Acme1.Models
     public class Product
     {
         [Required, Key, StringLength(10)]
-        //[RegularExpression("^[a-zA-Z0-9]{2-10}$", ErrorMessage = "Product ID is not valid")]
+        //[RegularExpression("^[a-zA-Z0-9_]{2-10}$", ErrorMessage = "Product ID is not valid")]
         public string ProductID { get; set; }
         [Required, Key, StringLength(20)]
         public string Name { get; set; }

@@ -80,6 +80,13 @@ namespace Acme1.Controllers
                 {
                     dbcon.Open();
                     cart.CartNumber = 100; //use Session["cartnumber"] later
+
+                    //added-->
+                            //if (Session["cartnumber"] == null)
+                            //    Session["cartnumber"] = Utility.GetIdNumber(dbcon, "CartNumber");
+                            //int cartnumber = (int)Session["cartnumber"];
+                    //<--added
+
                     int intresult = Cart_Lineitem.CartUpSert(dbcon, cart);
                     dbcon.Close();
                     return RedirectToAction("Cart");
@@ -92,12 +99,17 @@ namespace Acme1.Controllers
 
         public ActionResult Cart()
         {
+            List<Cartvm1> cartlist = new List<Cartvm1>();
             try
             {
-                dbcon.Open();
-                List<Cartvm1> cart = Cartvm1.GetCartList(dbcon, 100);
-                dbcon.Close();
-                return View(cart);
+                if (Session["cartnumber"] != null)
+                {
+                    dbcon.Open();
+                    int cartnumber = (int)Session["cartnumber"];
+                    cartlist = Cartvm1.GetCartList(dbcon, cartnumber);
+                    dbcon.Close();
+                }
+                return View(cartlist);
             }
             catch (Exception ex)
             {

@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="Models\Cart_Lineitem.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Utility.cs" />
     <Compile Include="Models\ViewModels\Cartvm1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -173,6 +174,7 @@
     <Content Include="Views\Shopping\Index.cshtml" />
     <Content Include="Views\Shopping\Order.cshtml" />
     <Content Include="Views\Shopping\Cart.cshtml" />
+    <Content Include="Views\Home\ShowSessions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
